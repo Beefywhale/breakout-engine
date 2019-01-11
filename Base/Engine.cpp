@@ -24,7 +24,7 @@ void Engine::init() {
     // start sdl TTF
     TTF_Init();
 
-    // define font
+    // define font close window if failure to load font
     try {
         font = TTF_OpenFont("font.ttf", 16);
     } catch (...) {
@@ -36,10 +36,14 @@ void Engine::draw() {
 
     // handle window events
     SDL_Event evnt;
+
+    char* key;
     while (SDL_PollEvent(&evnt)) {
         if (evnt.type == SDL_QUIT) {
             // make the window to stop running
             win->setRunning(false);
+        } else if (evnt.type == SDL_KEYDOWN) {
+            key = SDL_GetKeyName(event.key.keysym.sym);
         }
     }
 
@@ -66,6 +70,28 @@ void Engine::draw() {
         SDL_DestroyTexture(texture);
         SDL_FreeSurface(surface);
     }
+
+    for (auto actor : currentMap.getActors()) {
+        // set fonts color
+        SDL_Color color = { actor.getColor().red, actor.getColor().green, actor.getColor().blue };
+
+        // set surface to render to
+        SDL_Surface* surface = TTF_RenderText_Solid(font, actor.getValue(), color);
+        // create texture from surface
+        SDL_Texture* texture = SDL_CreateTextureFromSurface(win->getRenderer(), surface);
+
+        // render texture
+        int width, height = 0;
+        SDL_QueryTexture(texture, NULL, NULL, &width, &height);
+        SDL_Rect textureRect = { actor.getPosition().x * (width-2),
+                                 actor.getPosition().y * (height-2), width, height };
+        SDL_RenderCopy(win->getRenderer(), texture, NULL, &textureRect);
+
+        SDL_DestroyTexture(texture);
+        SDL_FreeSurface(surface);
+        actor.update(key);
+    }
+
     SDL_RenderPresent(win->getRenderer());
 
 }

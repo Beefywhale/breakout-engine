@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include "../Base/Color.hpp"
 
 struct positionData {
@@ -22,6 +23,8 @@ public:
     positionData getPosition() { return position; }
     char* getValue() { return val; }
     Color getColor() { return colors; }
+
+    virtual void update(char* key) {}
 
 private:
     positionData position;
