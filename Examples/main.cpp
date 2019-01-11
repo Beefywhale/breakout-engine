@@ -12,8 +12,8 @@ int main() {
 
 
     // game loop
-    //while (engine.isRunning()) {
+    while (engine.isRunning()) {
     //    engine.draw();
-    //}
-    //return 0;
+    }
+    return 0;
 }
