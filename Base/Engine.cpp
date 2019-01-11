@@ -25,7 +25,11 @@ void Engine::init() {
     TTF_Init();
 
     // define font
-    font = TTF_OpenFont("font.ttf", 16);
+    try {
+        font = TTF_OpenFont("font.ttf", 16);
+    } catch () {
+         win->isRunning = false;
+    }
 }
 
 void Engine::draw() {
