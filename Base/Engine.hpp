@@ -5,7 +5,6 @@
 #include "Window.hpp"
 #include "../Map/Map.hpp"
 
-
 class Engine {
 public:
 
