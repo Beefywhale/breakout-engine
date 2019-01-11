@@ -28,7 +28,7 @@ public:
 
     // wrapper for Window's isRunning function
     bool isRunning() { return win->isRunning(); }
-    Map getMap() { return map; }
+    Map getMap() { return currentMap; }
 
 private:
     Window* win;
