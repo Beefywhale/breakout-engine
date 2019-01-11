@@ -28,7 +28,7 @@ void Engine::init() {
     try {
         font = TTF_OpenFont("font.ttf", 16);
     } catch () {
-         win->isRunning(false);
+         win->setRunning(false);
     }
 }
 
