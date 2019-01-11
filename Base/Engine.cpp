@@ -43,7 +43,7 @@ void Engine::draw() {
             // make the window to stop running
             win->setRunning(false);
         } else if (evnt.type == SDL_KEYDOWN) {
-            key = SDL_GetKeyName(event.key.keysym.sym);
+            key = SDL_GetKeyName(evnt.key.keysym.sym);
         }
     }
 

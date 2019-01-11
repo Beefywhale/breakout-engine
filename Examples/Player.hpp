@@ -8,6 +8,6 @@ public:
     // default constructor
     Player() {}
 
-    Player(char* value, int x, int y, Color color) : Actor(value, x, y, color);
+    Player(char* value, int x, int y, Color color) : Actor(value, x, y, color) {};
 
 };
