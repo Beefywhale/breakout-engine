@@ -10,4 +10,6 @@ public:
 
     Player(char* value, int x, int y, Color color) : Actor(value, x, y, color) {};
 
+    void update(const char* key) override
+
 };
