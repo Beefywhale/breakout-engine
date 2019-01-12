@@ -1,4 +1,5 @@
 #pragma once
+
 #include <vector>
 #include "../Base/Color.hpp"
 
@@ -26,7 +27,7 @@ public:
 
     virtual void update(const char* key) {}
 
-private:
+protected:
     positionData position;
     char* val;
     Color colors;

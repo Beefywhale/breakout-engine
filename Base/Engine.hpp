@@ -4,6 +4,7 @@
 #include <SDL2/SDL_ttf.h>
 #include "Window.hpp"
 #include "../Map/Map.hpp"
+#include "../Map/Actor.hpp"
 
 class Engine {
 public:
