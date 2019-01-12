@@ -11,16 +11,16 @@ public:
     // default constructor
     Map();
 
-    void addActor(Actor newActor);
+    void addActor(Actor* newActor);
 
     // get the Tile at a give x,y
     Tile getTileAt(int x, int y);
     // get all the current Tiles in the Map
     std::map<std::pair<int, int>, Tile> getTiles() { return tileMap; }
-    std::vector<Actor> getActors() { return actors; }
+    std::vector<Actor*> getActors() { return actors; }
 
 private:
     std::map<std::pair<int, int>, Tile> tileMap;
-    std::vector<Actor> actors;
+    std::vector<Actor*> actors;
 
 };

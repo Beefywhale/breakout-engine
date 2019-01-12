@@ -37,7 +37,7 @@ void Engine::draw() {
     // handle window events
     SDL_Event evnt;
 
-    char* key;
+    const char* key = "\0";
     while (SDL_PollEvent(&evnt)) {
         if (evnt.type == SDL_QUIT) {
             // make the window to stop running
@@ -63,7 +63,7 @@ void Engine::draw() {
         // render texture
         int width, height = 0;
         SDL_QueryTexture(texture, NULL, NULL, &width, &height);
-        SDL_Rect textureRect = { i.second.getPosition().x * (width-2),
+        SDL_Rect textureRect = { i.second.getPosition().x * (width+2),
                                  i.second.getPosition().y * (height-2), width, height };
         SDL_RenderCopy(win->getRenderer(), texture, NULL, &textureRect);
 
@@ -73,27 +73,27 @@ void Engine::draw() {
 
     for (auto actor : currentMap.getActors()) {
         // set fonts color
-        SDL_Color color = { actor.getColor().red, actor.getColor().green, actor.getColor().blue };
+        SDL_Color color = { actor->getColor().red, actor->getColor().green, actor->getColor().blue };
 
         // set surface to render to
-        SDL_Surface* surface = TTF_RenderText_Solid(font, actor.getValue(), color);
+        SDL_Surface* surface = TTF_RenderText_Solid(font, actor->getValue(), color);
         // create texture from surface
         SDL_Texture* texture = SDL_CreateTextureFromSurface(win->getRenderer(), surface);
 
         // render texture
         int width, height = 0;
         SDL_QueryTexture(texture, NULL, NULL, &width, &height);
-        SDL_Rect textureRect = { actor.getPosition().x * (width-2),
-                                 actor.getPosition().y * (height-2), width, height };
+        SDL_Rect textureRect = { actor->getPosition().x * (width+2),
+                                 actor->getPosition().y * (height-2), width, height };
         SDL_RenderCopy(win->getRenderer(), texture, NULL, &textureRect);
 
         SDL_DestroyTexture(texture);
         SDL_FreeSurface(surface);
-        actor.update(key);
+        actor->update(key);
     }
 
     SDL_RenderPresent(win->getRenderer());
-
+    key = "\0";
 }
 
 void Engine::changeFont(char* path, int size) {
