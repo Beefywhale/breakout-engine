@@ -20,8 +20,11 @@ public:
     // create Engine with a given Window and Map
     Engine(Window* window, Map map);
 
-    // create Engine and have it make a window based on given parameters
+    // create Engine and have it make a window based on given parameters, and have it create a blank map
     Engine(char* title, int width, int height);
+
+    // create Engine with a window created with the given parameters, and set the map
+    Engine(char* title, int width, int height, Map map);
 
     void init();
     // draw loop. draws Tiles from currentMap
