@@ -33,7 +33,6 @@ void Engine::init() {
 }
 
 void Engine::draw() {
-
     // handle window events
     SDL_Event evnt;
 
@@ -51,27 +50,9 @@ void Engine::draw() {
 
     // render here
 
-    for (auto i : currentMap.getTiles()) {
-        // set fonts color
-        SDL_Color color = { i.second.getColor().red, i.second.getColor().green, i.second.getColor().blue };
-
-        // set surface to render to
-        SDL_Surface* surface = TTF_RenderText_Solid(font, i.second.getValue(), color);
-        // create texture from surface
-        SDL_Texture* texture = SDL_CreateTextureFromSurface(win->getRenderer(), surface);
-
-        // render texture
-        int width, height = 0;
-        SDL_QueryTexture(texture, NULL, NULL, &width, &height);
-        SDL_Rect textureRect = { i.second.getPosition().x * (width+2),
-                                 i.second.getPosition().y * (height-2), width, height };
-        SDL_RenderCopy(win->getRenderer(), texture, NULL, &textureRect);
-
-        SDL_DestroyTexture(texture);
-        SDL_FreeSurface(surface);
-    }
-
-    for (auto actor : currentMap.getActors()) {
+    // render all Actors in current map
+    for (auto actorM : currentMap.getActors()) {
+        auto actor = actorM.second.back();
         // set fonts color
         SDL_Color color = { actor->getColor().red, actor->getColor().green, actor->getColor().blue };
 
@@ -94,6 +75,7 @@ void Engine::draw() {
 
     SDL_RenderPresent(win->getRenderer());
     key = "\0";
+    currentMap.update();
 }
 
 void Engine::changeFont(char* path, int size) {

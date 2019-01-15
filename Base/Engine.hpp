@@ -2,6 +2,8 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include <vector>
+#include <algorithm>
 #include "Window.hpp"
 #include "../Map/Map.hpp"
 #include "../Map/Actor.hpp"
@@ -35,4 +37,5 @@ private:
     Window* win;
     TTF_Font* font;
     Map currentMap;
+    std::vector<std::pair<int, int>> occupied;
 };
