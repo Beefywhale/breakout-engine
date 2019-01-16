@@ -2,6 +2,7 @@
 
 #include "../Map/Actor.hpp"
 #include "../Base/Engine.hpp"
+#include "../Map/Tile.hpp"
 #include <string>
 
 class Player: public Actor {

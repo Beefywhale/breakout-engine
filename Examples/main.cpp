@@ -2,6 +2,7 @@
 #include "../Base/Color.hpp"
 #include "../Map/Layer.hpp"
 #include "../Map/Map.hpp"
+#include "../Map/Tile.hpp"
 #include "Player.hpp"
 #include <SDL2/SDL.h>
 
@@ -21,9 +22,10 @@ int main() {
 	// filling tile layer map with very basic stuff
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++) {
-			map.getLayers().at(0)->addActor(new Actor("#", j, i, Color(255,255,0)));
+			map.getLayers().at(0)->addActor(new Tile("#", j, i, Color(255,255,0), false));
 		}
-		map.getLayers().at(0)->addActor(new Actor("#", 0, i, Color(255,255,0)));
+		map.getLayers().at(0)->addActor(new Tile("#", 0, i, Color(255,255,0), false));
+        map.getLayers().at(0)->addActor(new Tile("|", 10, i, Color(0,255,255), true));
 	}
 
 

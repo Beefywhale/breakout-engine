@@ -17,6 +17,11 @@ void Player::update(const char* key) {
 
 void Player::safeMove(int x, int y) {
 	if (engine->getMap()->getLayers().at(0)->isActorAt(position.x + x, position.y + y)) {
-		move(x, y);
+        // this is a lil hacky, but since we know the layer at 0 is made completly up of Tile objects it should be fine.
+        auto tileTemp = engine->getMap()->getLayers().at(0)->getActorAt(position.x + x, position.y + y);
+        auto tile = static_cast<Tile*>(tileTemp);
+        if (!tile->isSolid()) {
+		    move(x, y);
+        }
 	}
 }
