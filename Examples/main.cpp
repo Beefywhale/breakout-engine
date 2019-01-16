@@ -9,7 +9,6 @@
 class EntityLayer: public Layer { public: EntityLayer(): Layer() {} };
 class TileLayer: public Layer { public: TileLayer(): Layer() {} };
 
-
 // main function
 int main() {
 
@@ -30,7 +29,7 @@ int main() {
 
     // create an Engine object to process input and rendering.
     Engine engine = Engine("Title", 640, 480, map);
-    Player player("@", 0, 0, Color(255,255,0), map);
+    Player player("@", 0, 0, Color(255,255,0), &engine);
     //engine.getMap()->addActor(&player);
 
     // game loop

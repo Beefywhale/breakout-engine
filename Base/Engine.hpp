@@ -4,6 +4,9 @@
 #include <SDL2/SDL_ttf.h>
 #include <vector>
 #include <algorithm>
+#include <functional>
+#include <queue>
+
 #include "Window.hpp"
 #include "../Map/Map.hpp"
 #include "../Map/Actor.hpp"
@@ -31,7 +34,8 @@ public:
     void draw();
     void changeFont(char* path, int size);
     void destroy();
-
+    void addEvent(std::function<void()> event);
+    
     // wrapper for Window's isRunning function
     bool isRunning() { return win->isRunning(); }
     Map* getMap() { return &currentMap; }
@@ -41,4 +45,5 @@ private:
     TTF_Font* font;
     Map currentMap;
     std::vector<std::pair<int, int>> occupied;
+    std::queue<std::function<void()>> events;
 };

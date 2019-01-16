@@ -16,7 +16,7 @@ void Player::update(const char* key) {
 }
 
 void Player::safeMove(int x, int y) {
-	if (currentMap.getLayers().at(0)->isActorAt(position.x + x, position.y + y)) {
+	if (engine->getMap()->getLayers().at(0)->isActorAt(position.x + x, position.y + y)) {
 		move(x, y);
 	}
 }

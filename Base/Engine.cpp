@@ -52,6 +52,13 @@ void Engine::draw() {
         }
     }
 
+    // process custom events
+    while (!events.empty()) {
+        std::function<void()> event = events.front();
+        events.pop();
+        event();
+    }
+
     SDL_RenderClear(win->getRenderer());
 
     // render here
@@ -100,4 +107,8 @@ void Engine::changeFont(char* path, int size) {
 void Engine::destroy() {
     TTF_CloseFont(font);
     TTF_Quit();
+}
+
+void Engine::addEvent(std::function<void()> event) {
+    events.push(event);
 }
