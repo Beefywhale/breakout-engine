@@ -30,11 +30,15 @@ void Engine::init() {
     // start sdl TTF
     TTF_Init();
 
+    // define logger
+    logger = new Logger();
+
     // define font close window if failure to load font
     try {
         font = TTF_OpenFont("font.ttf", 16);
     } catch (...) {
-         win->setRunning(false);
+        win->setRunning(false);
+        logger->error("Failed to load font file.");
     }
 }
 
@@ -50,13 +54,6 @@ void Engine::draw() {
         } else if (evnt.type == SDL_KEYDOWN) {
             key = SDL_GetKeyName(evnt.key.keysym.sym);
         }
-    }
-
-    // process custom events
-    while (!events.empty()) {
-        std::function<void()> event = events.front();
-        events.pop();
-        event();
     }
 
     SDL_RenderClear(win->getRenderer());
@@ -107,8 +104,4 @@ void Engine::changeFont(char* path, int size) {
 void Engine::destroy() {
     TTF_CloseFont(font);
     TTF_Quit();
-}
-
-void Engine::addEvent(std::function<void()> event) {
-    events.push(event);
 }

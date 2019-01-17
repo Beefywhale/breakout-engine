@@ -13,7 +13,6 @@ public:
 
 	Player(char* value, int x, int y, Color color, Engine* currentEngine) : Actor(value, x, y, color) { engine = currentEngine; engine->getMap()->getLayers().at(1)->addActor(this); }
     
-    void moved();
     void update(const char* key) override;
     void safeMove(int x, int y);
 
