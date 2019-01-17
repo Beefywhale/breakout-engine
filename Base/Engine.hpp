@@ -4,8 +4,7 @@
 #include <SDL2/SDL_ttf.h>
 #include <vector>
 #include <algorithm>
-#include <functional>
-#include <queue>
+#include <string>
 
 #include "Window.hpp"
 #include "Logger.hpp"
@@ -33,7 +32,7 @@ public:
     void init();
     // draw loop. draws Tiles from currentMap
     void draw();
-    void changeFont(char* path, int size);
+    void loadFont(char* path, int size);
     void destroy();
     
     // wrapper for Window's isRunning function
@@ -47,4 +46,5 @@ private:
     TTF_Font* font;
     Map currentMap;
     std::vector<std::pair<int, int>> occupied;
+    bool fontLoaded;
 };
