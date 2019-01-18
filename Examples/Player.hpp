@@ -11,7 +11,7 @@ public:
     // default constructor
     Player() {}
 
-	Player(char* value, int x, int y, Color color, Engine* currentEngine) : Actor(value, x, y, color) { engine = currentEngine; engine->getMap()->getLayers().at(1)->addActor(this); }
+    Player(char* value, int x, int y, Color color, Engine* currentEngine) : Actor(value, x, y, color) { engine = currentEngine; engine->getMap()->getLayers().at(1)->addActor(this); }
     
     void update() override;
     void safeMove(int x, int y);

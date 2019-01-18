@@ -14,4 +14,5 @@ public:
 
 private:
     bool solidness;
+
 };
