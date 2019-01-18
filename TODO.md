@@ -2,6 +2,8 @@
 
 ## Working on
 
+- [ ] Make actor update not hardcoded for input events.
+
 ## Ideas
 
 ### These things may take a long time to finally be implemented, or may never be implemented.
