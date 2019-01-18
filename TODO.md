@@ -3,6 +3,7 @@
 ## Working on
 
 - [X] Make actor update not hardcoded for input events.
+- [ ] Map loading and saving.
 
 ## Ideas
 
