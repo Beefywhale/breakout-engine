@@ -34,6 +34,12 @@ void Engine::init() {
 
     // define logger
     logger = new Logger();
+    
+    // set the keysDown map to be all false, as no keys are down at this moment.
+    for (auto i : keysDown) {
+        keysDown[i.first] = false;
+    }
+
 }
 
 void Engine::draw() {
@@ -41,13 +47,12 @@ void Engine::draw() {
         // handle window events
         SDL_Event evnt;
 
-        const char* key = "\0";
         while (SDL_PollEvent(&evnt)) {
             if (evnt.type == SDL_QUIT) {
                 // make the window to stop running
                 win->setRunning(false);
             } else if (evnt.type == SDL_KEYDOWN) {
-                key = SDL_GetKeyName(evnt.key.keysym.sym);
+                keysDown[SDL_GetKeyName(evnt.key.keysym.sym)] = true;
             }
         }
 
@@ -82,14 +87,19 @@ void Engine::draw() {
                     SDL_DestroyTexture(texture);
                     SDL_FreeSurface(surface);
                 }
-                actor->update(key);
+                actor->update();
             }
         }
 
         SDL_RenderPresent(win->getRenderer());
-        key = "\0";
         currentMap.update();
         occupied.clear();
+        
+        // reset keysDown map
+        for (auto i : keysDown) {
+            keysDown[i.first] = false;
+        }
+
     } else {
         logger->error("No font loaded!");
         win->setRunning(false);
@@ -109,4 +119,10 @@ void Engine::loadFont(char* path, int size) {
 void Engine::destroy() {
     TTF_CloseFont(font);
     TTF_Quit();
+}
+
+bool Engine::isKeyDown(std::string name) {
+    if (keysDown.find(name) != keysDown.end()) {
+        return keysDown[name];
+    } 
 }

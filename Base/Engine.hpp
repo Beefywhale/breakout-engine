@@ -3,6 +3,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <vector>
+#include <map>
 #include <algorithm>
 #include <string>
 
@@ -37,6 +38,7 @@ public:
     
     // wrapper for Window's isRunning function
     bool isRunning() { return win->isRunning(); }
+    bool isKeyDown(std::string name);
     Map* getMap() { return &currentMap; }
     Logger* getLogger() { return logger; }
 
@@ -47,4 +49,5 @@ private:
     Map currentMap;
     std::vector<std::pair<int, int>> occupied;
     bool fontLoaded;
+    std::map<std::string, bool> keysDown;
 };

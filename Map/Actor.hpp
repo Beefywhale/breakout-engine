@@ -25,7 +25,7 @@ public:
     char* getValue() { return val; }
     Color getColor() { return colors; }
 
-    virtual void update(const char* key) {}
+    virtual void update() {}
 
 protected:
     positionData position;
