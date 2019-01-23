@@ -5,10 +5,21 @@
 #include "Tile.hpp"
 #include "Player.hpp"
 #include <SDL2/SDL.h>
+#include <string>
 
 // example custom layers
 class EntityLayer: public Layer { public: EntityLayer(): Layer() {} };
 class TileLayer: public Layer { public: TileLayer(): Layer() {} };
+
+void events(Engine* engine) {
+    while (!engine->eventsEmpty()) {
+        std::string event = engine->processEvents();
+
+	if (event == "player_moved") {
+	    engine->getLogger()->info("Player moved!");
+	}
+    }
+}
 
 // main function
 int main() {
@@ -35,6 +46,7 @@ int main() {
 
     // game loop
     while (engine.isRunning()) {
+        events(&engine);
         engine.draw();
     }
     return 0;

@@ -19,7 +19,8 @@ void Player::safeMove(int x, int y) {
         auto tile = static_cast<Tile*>(tileTemp);
         if (!tile->isSolid()) {
             move(x, y);
-        } else {
+	    engine->addEvent("player_moved");
+	} else {
             engine->getLogger()->info("Player collided with a Tile at: " + std::to_string(tile->getPosition().x) + "," + std::to_string(tile->getPosition().y));
         }
     }

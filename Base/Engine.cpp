@@ -121,6 +121,16 @@ void Engine::destroy() {
     TTF_Quit();
 }
 
+void Engine::addEvent(std::string name) {
+    events.push(name);
+}
+
+std::string Engine::processEvents() {
+	std::string name = events.front();
+	events.pop();
+	return name;
+}
+
 bool Engine::isKeyDown(std::string name) {
     if (keysDown.find(name) != keysDown.end()) {
         return keysDown[name];
