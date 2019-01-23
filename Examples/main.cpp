@@ -2,11 +2,11 @@
 #include "../Base/Color.hpp"
 #include "../Map/Layer.hpp"
 #include "../Map/Map.hpp"
-#include "../Map/Tile.hpp"
+#include "Tile.hpp"
 #include "Player.hpp"
 #include <SDL2/SDL.h>
 
-//exaple
+// example custom layers
 class EntityLayer: public Layer { public: EntityLayer(): Layer() {} };
 class TileLayer: public Layer { public: TileLayer(): Layer() {} };
 
