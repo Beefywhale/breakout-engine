@@ -16,8 +16,9 @@ bool Layer::isActorAt(int x, int y) {
 
 void Layer::update() {
     std::map<std::pair<int, int>, Actor*> tempActors;
-    for (auto actorM : actors) {
-        tempActors[std::make_pair(actorM.second->getPosition().x, actorM.second->getPosition().y)] = actorM.second;
+    for (auto actorTemp : actors) {
+	auto actorM = actorTemp.second;
+        tempActors[std::make_pair(actorM->getPosition().x, actorM->getPosition().y)] = actorM;
     }
     actors.clear();
     actors = tempActors;

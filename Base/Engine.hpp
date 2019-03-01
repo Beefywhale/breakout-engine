@@ -4,9 +4,9 @@
 #include <SDL2/SDL_ttf.h>
 #include <vector>
 #include <map>
+#include <functional>
 #include <algorithm>
 #include <string>
-#include <queue>
 
 #include "Window.hpp"
 #include "Logger.hpp"
@@ -36,10 +36,7 @@ public:
     void draw();
     void loadFont(char* path, int size);
     void destroy();
-    void addEvent(std::string name);
-
-    std::string processEvents();
-    bool eventsEmpty() { return events.empty(); }
+    
     // wrapper for Window's isRunning function
     bool isRunning() { return win->isRunning(); }
     bool isKeyDown(std::string name);
@@ -54,5 +51,4 @@ private:
     std::vector<std::pair<int, int>> occupied;
     bool fontLoaded;
     std::map<std::string, bool> keysDown;
-    std::queue<std::string> events;
 };
