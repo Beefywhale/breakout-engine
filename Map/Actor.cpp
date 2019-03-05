@@ -16,3 +16,7 @@ void Actor::setPosition(int x, int y) {
     position.x = x;
     position.y = y;
 }
+
+void Actor::setValue(char* newVal) {
+	val = newVal;
+}

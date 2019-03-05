@@ -20,6 +20,8 @@ public:
     void move(int x, int y);
     // move the Actor to any x,y coordinate.
     void setPosition(int x, int y);
+    // set the actors value to a new char*
+    void setValue(char* newVal);
 
     positionData getPosition() { return position; }
     char* getValue() { return val; }

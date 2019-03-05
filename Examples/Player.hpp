@@ -2,6 +2,7 @@
 
 #include "../Map/Actor.hpp"
 #include "../Base/Engine.hpp"
+#include "Tiles.hpp"
 #include "Tile.hpp"
 #include <string>
 
