@@ -2,8 +2,9 @@
 #include <string>
 #include <ctime>
 
-class Logger {
-public:
+class Logger
+{
+  public:
     Logger() {}
 
     void error(std::string err);
