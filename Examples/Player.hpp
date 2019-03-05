@@ -8,18 +8,18 @@
 
 class Player : public Actor
 {
-  public:
-    // default constructor
-    Player() {}
-    Player(char *value, int x, int y, Color color, Engine *currentEngine) : Actor(value, x, y, color)
-    {
-        engine = currentEngine;
-        engine->getMap()->getLayers().at(1)->addActor(this);
-    }
+public:
+  // default constructor
+  Player() {}
+  Player(char *value, int x, int y, Color color, Engine *currentEngine) : Actor(value, x, y, color)
+  {
+    engine = currentEngine;
+    engine->getMap()->getLayers().at(1)->addActor(this);
+  }
 
-    void update() override;
-    void safeMove(int x, int y);
+  void update() override;
+  void safeMove(int x, int y);
 
-  private:
-    Engine *engine;
+private:
+  Engine *engine;
 };

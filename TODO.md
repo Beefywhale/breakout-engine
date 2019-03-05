@@ -3,6 +3,7 @@
 ## Working on
 
 - [ ] Map loading and saving.
+- [ ] Replace using font files for image files.
 - [X] Tile types.
 
 ## Ideas

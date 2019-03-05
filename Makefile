@@ -1,5 +1,5 @@
 FILES = */*.cpp
-EXEC_NAME = exec
+EXEC_NAME = Examples/build/exec
 LINKS = -lSDL2 -lSDL2_ttf
 
 #This is the target that compiles our executable

@@ -124,12 +124,12 @@ void Engine::draw()
 
 void Engine::loadFont(char *path, int size)
 {
-    try
+    if (std::ifstream(path))
     {
         font = TTF_OpenFont(path, size);
         fontLoaded = true;
     }
-    catch (...)
+    else
     {
         logger->error("Could not load font from path.");
         win->setRunning(false);

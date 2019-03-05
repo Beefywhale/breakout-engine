@@ -4,11 +4,11 @@
 
 class Logger
 {
-  public:
-    Logger() {}
+public:
+  Logger() {}
 
-    void error(std::string err);
-    void warning(std::string warn);
-    void info(std::string inf);
-    void plaintext(std::string pt);
+  void error(std::string err);
+  void warning(std::string warn);
+  void info(std::string inf);
+  void plaintext(std::string pt);
 };
