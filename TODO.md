@@ -3,7 +3,7 @@
 ## Working on
 
 - [ ] Map loading and saving.
-- [X] Tile types.
+- [ ] Way for Map to load different tile types for file.
 
 ## Ideas
 
