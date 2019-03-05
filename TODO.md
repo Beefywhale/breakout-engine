@@ -4,6 +4,7 @@
 
 - [X] Make actor update not hardcoded for input events.
 - [ ] Map loading and saving.
+- [ ] Tile types.
 
 ## Ideas
 
