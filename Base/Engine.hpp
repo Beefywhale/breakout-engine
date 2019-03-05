@@ -3,8 +3,13 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <vector>
+#include <map>
+#include <functional>
 #include <algorithm>
+#include <string>
+
 #include "Window.hpp"
+#include "Logger.hpp"
 #include "../Map/Map.hpp"
 #include "../Map/Actor.hpp"
 
@@ -29,16 +34,21 @@ public:
     void init();
     // draw loop. draws Tiles from currentMap
     void draw();
-    void changeFont(char* path, int size);
+    void loadFont(char* path, int size);
     void destroy();
-
+    
     // wrapper for Window's isRunning function
     bool isRunning() { return win->isRunning(); }
+    bool isKeyDown(std::string name);
     Map* getMap() { return &currentMap; }
+    Logger* getLogger() { return logger; }
 
 private:
     Window* win;
+    Logger* logger;
     TTF_Font* font;
     Map currentMap;
     std::vector<std::pair<int, int>> occupied;
+    bool fontLoaded;
+    std::map<std::string, bool> keysDown;
 };
