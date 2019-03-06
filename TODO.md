@@ -2,9 +2,8 @@
 
 ## Working on
 
-- [ ] Map loading and saving.
-- [ ] Replace using font files for image files.
-- [X] Tile types.
+- [ ] map loading and saving (need a system for loading tile types when a map parses.)
+- [ ] replace using font files for image files
 
 ## Ideas
 
