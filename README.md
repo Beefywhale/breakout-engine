@@ -2,7 +2,7 @@
 
 ## Information
 
-**This is not in a complete state and is missing alot of features.**
+**This is not in a complete state and is missing alot of features, but the core of it is there if you want to mess around with it.**
 
 A remake of my unfinished framework/engine, this time using sdl2 for rendering.
 
