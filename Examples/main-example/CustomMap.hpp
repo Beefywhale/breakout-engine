@@ -1,10 +1,8 @@
 #pragma once
 #include <fstream>
 #include <string>
-#include <vector>
 
 #include "../../Map/Map.hpp"
-#include "../../Base/Engine.hpp"
 #include "Tile.hpp"
 #include "Tiles.hpp"
 #include "Player.hpp"
@@ -16,7 +14,7 @@ using json = nlohmann::json;
 class CustomMap : public Map
 {
 public:
-  CustomMap();
+  CustomMap() : Map() {}
 
   void load(std::string path);
 

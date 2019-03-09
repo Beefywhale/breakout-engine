@@ -7,11 +7,7 @@ class Tile : public Actor
 {
 public:
   // default constructor.
-  Tile(std::string value, int x, int y, Color color, bool solid) : Actor(value, x, y, color)
-  {
-    solidness = solid;
-    type = "";
-  }
+  Tile(std::string value, int x, int y, Color color, bool solid);
 
   void setSolid(bool solid);
   void setType(std::string newType);

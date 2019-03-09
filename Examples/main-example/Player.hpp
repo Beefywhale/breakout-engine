@@ -4,6 +4,7 @@
 #include "../../Base/Engine.hpp"
 #include "Tiles.hpp"
 #include "Tile.hpp"
+
 #include <string>
 
 class Player : public Actor
@@ -11,10 +12,7 @@ class Player : public Actor
 public:
   // default constructor
   Player() {}
-  Player(std::string value, int x, int y, Color color, Engine *currentEngine) : Actor(value, x, y, color)
-  {
-    engine = currentEngine;
-  }
+  Player(std::string value, int x, int y, Color color, Engine *currentEngine);
 
   void update() override;
   void safeMove(int x, int y);
