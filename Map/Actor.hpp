@@ -2,37 +2,38 @@
 
 #include <vector>
 #include "../Base/Color.hpp"
+#include <string>
 
 struct positionData
 {
-    int x;
-    int y;
+  int x;
+  int y;
 };
 
 class Actor
 {
-  public:
-    // default constructor
-    Actor() {}
+public:
+  // default constructor
+  Actor() {}
 
-    // create an actor with a value, position and color
-    Actor(char *value, int x, int y, Color color);
+  // create an actor with a value, position and color
+  Actor(std::string value, int x, int y, Color color);
 
-    // move the Actor from current position by adding to it.
-    void move(int x, int y);
-    // move the Actor to any x,y coordinate.
-    void setPosition(int x, int y);
-    // set the actors value to a new char*
-    void setValue(char *newVal);
+  // move the Actor from current position by adding to it.
+  void move(int x, int y);
+  // move the Actor to any x,y coordinate.
+  void setPosition(int x, int y);
+  // set the actors value to a new char*
+  void setValue(std::string newVal);
 
-    positionData getPosition() { return position; }
-    char *getValue() { return val; }
-    Color getColor() { return colors; }
+  positionData getPosition() { return position; }
+  std::string getValue() { return val; }
+  Color getColor() { return colors; }
 
-    virtual void update() {}
+  virtual void update() {}
 
-  protected:
-    positionData position;
-    char *val;
-    Color colors;
+protected:
+  positionData position;
+  std::string val;
+  Color colors;
 };

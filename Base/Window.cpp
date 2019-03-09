@@ -6,10 +6,10 @@ void Window::init()
     SDL_Init(SDL_INIT_EVERYTHING);
 }
 
-void Window::createWindow(char *title, int width, int height)
+void Window::createWindow(std::string title, int width, int height)
 {
     // create an SDL window.
-    window = SDL_CreateWindow(title, 100, 100, width, height, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow(title.c_str(), 100, 100, width, height, SDL_WINDOW_SHOWN);
 
     // check if it successfully created that window
     if (!window)
@@ -33,7 +33,7 @@ void Window::createRenderer()
     }
 }
 
-Window::Window(char *title, int width, int height)
+Window::Window(std::string title, int width, int height)
 {
     init();
     createWindow(title, width, height);

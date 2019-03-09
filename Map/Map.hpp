@@ -2,20 +2,19 @@
 
 #include "Layer.hpp"
 
-class Map {
+class Map
+{
 public:
+  // default constructor
+  Map();
 
-    // default constructor
-    Map();
+  std::map<std::string, Layer *> getLayers() { return layers; }
 
-    std::vector<Layer*> getLayers() { return layers; }
-
-    // add a new Layer to the layers vector
-    void addLayer(Layer* layer);
-    // update each layer
-    void update();
+  // add a new Layer to the layers vector
+  void addLayer(std::string name, Layer *layer);
+  // update each layer
+  void update();
 
 private:
-    std::vector<Layer*> layers;
-
+  std::map<std::string, Layer *> layers;
 };

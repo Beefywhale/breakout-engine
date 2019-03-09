@@ -2,15 +2,15 @@
 
 Map::Map() {}
 
-void Map::addLayer(Layer *layer)
+void Map::addLayer(std::string name, Layer *layer)
 {
-    layers.push_back(layer);
+    layers[name] = layer;
 }
 
 void Map::update()
 {
     for (auto layer : layers)
     {
-        layer->update();
+        layer.second->update();
     }
 }

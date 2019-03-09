@@ -2,7 +2,9 @@
 
 ## Working on
 
-- [ ] map loading and saving (need a system for loading tile types when a map parses.)
+- [x] map loading.
+- [ ] map example for loading custom Actor.
+- [ ] map saving.
 - [ ] replace using font files for image files
 
 ## Ideas

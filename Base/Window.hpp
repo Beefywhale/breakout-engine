@@ -1,7 +1,7 @@
 #pragma once
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
-#include "iostream"
+#include <iostream>
 
 class Window
 {
@@ -13,7 +13,7 @@ public:
   ~Window() { destroy(); }
 
   // constructor which handles title, width, and height parameters
-  Window(char *title, int width, int height);
+  Window(std::string title, int width, int height);
 
   void destroy();
   void draw();
@@ -24,7 +24,7 @@ public:
 
 private:
   void init();
-  void createWindow(char *title, int width, int height);
+  void createWindow(std::string title, int width, int height);
   void createRenderer();
 
   bool running = true;

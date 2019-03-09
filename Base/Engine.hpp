@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <string>
 #include <fstream>
+#include <string>
 
 #include "Window.hpp"
 #include "Logger.hpp"
@@ -27,15 +28,15 @@ public:
   Engine(Window *window, Map map);
 
   // create Engine and have it make a window based on given parameters, and have it create a blank map
-  Engine(char *title, int width, int height);
+  Engine(std::string title, int width, int height);
 
   // create Engine with a window created with the given parameters, and set the map
-  Engine(char *title, int width, int height, Map map);
+  Engine(std::string title, int width, int height, Map map);
 
   void init();
   // draw loop. draws Tiles from currentMap
   void draw();
-  void loadFont(char *path, int size);
+  void loadFont(std::string path, int size);
   void destroy();
 
   // wrapper for Window's isRunning function

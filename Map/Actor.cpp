@@ -1,6 +1,6 @@
 #include "Actor.hpp"
 
-Actor::Actor(char *value, int x, int y, Color color)
+Actor::Actor(std::string value, int x, int y, Color color)
 {
     val = value;
     position.x = x;
@@ -20,7 +20,7 @@ void Actor::setPosition(int x, int y)
     position.y = y;
 }
 
-void Actor::setValue(char *newVal)
+void Actor::setValue(std::string newVal)
 {
     val = newVal;
 }

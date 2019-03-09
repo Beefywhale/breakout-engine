@@ -16,14 +16,14 @@ Engine::Engine(Window *window, Map map)
     init();
 }
 
-Engine::Engine(char *title, int width, int height)
+Engine::Engine(std::string title, int width, int height)
 {
     win = new Window(title, width, height);
     currentMap = Map();
     init();
 }
 
-Engine::Engine(char *title, int width, int height, Map map)
+Engine::Engine(std::string title, int width, int height, Map map)
 {
     win = new Window(title, width, height);
     currentMap = map;
@@ -72,10 +72,9 @@ void Engine::draw()
         // render here
 
         // render all Actors in current map
-        for (int i = currentMap.getLayers().size(); i--;)
+        for (auto layer : currentMap.getLayers())
         {
-            auto layer = currentMap.getLayers().at(i);
-            for (auto actorM : layer->getActors())
+            for (auto actorM : layer.second->getActors())
             {
                 auto actor = actorM.second;
                 if (std::find(occupied.begin(), occupied.end(), std::make_pair(actor->getPosition().x, actor->getPosition().y)) == occupied.end())
@@ -87,7 +86,8 @@ void Engine::draw()
                     SDL_Color color = {actor->getColor().red, actor->getColor().green, actor->getColor().blue};
 
                     // set surface to render to
-                    SDL_Surface *surface = TTF_RenderText_Solid(font, actor->getValue(), color);
+                    SDL_Surface *surface = TTF_RenderText_Solid(font, actor->getValue().c_str(), color);
+
                     // create texture from surface
                     SDL_Texture *texture = SDL_CreateTextureFromSurface(win->getRenderer(), surface);
 
@@ -122,11 +122,11 @@ void Engine::draw()
     }
 }
 
-void Engine::loadFont(char *path, int size)
+void Engine::loadFont(std::string path, int size)
 {
     if (std::ifstream(path))
     {
-        font = TTF_OpenFont(path, size);
+        font = TTF_OpenFont(path.c_str(), size);
         fontLoaded = true;
     }
     else
