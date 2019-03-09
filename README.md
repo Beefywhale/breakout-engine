@@ -2,13 +2,23 @@
 
 ## Information
 
-A refactor/remake of my unfinished library/framework, this time using sdl.
+**This is not in a complete state and is missing alot of features.**
 
-Currently only tested and supported on Linux.
+A remake of my unfinished framework/engine, this time using sdl2 for rendering.
 
-Breakout is a rougelike framework/engine built in C++ meant for making it easier to make Rougelike games.
+(currently only tested and supported on Linux)
+
+Breakout is a rougelike framework/engine built in C++. With the goal of making it easier to make Rougelike games without all the hassle.
 
 ## Getting Started
 
-* ## Building
-    You'll need g++ and the SDL develpment libs installed, specifically libSDL2 and libSDL2-ttf. After that just use make to build the executable, or compile it yourself using your own g++ command.
+* ## Prerequisites
+    (currently only tested on Linux)
+    `g++` version 7.0+ and the SDL develpment libraries installed in your default include path, specifically `libSDL2` and `libSDL2-ttf`.
+
+* ## Examples
+    The `main-example` is the best for looking at how to use the library/framework in a *general* way.
+
+* ## Building Examples
+    The examples can be built by using the `make` command in the example's folder.
+    You can also use your own compiler commands in place of `make`.
