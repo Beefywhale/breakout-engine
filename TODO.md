@@ -2,9 +2,10 @@
 
 ## Working on
 
-- [x] map loading.
-- [ ] map example for loading custom Actor.
-- [ ] map saving.
+- [x] map loading
+- [ ] replace current SDL2 library with a c++ wrapper
+- [ ] map example for loading custom Actor
+- [ ] map saving
 - [ ] replace using font files for image files
 
 ## Ideas
