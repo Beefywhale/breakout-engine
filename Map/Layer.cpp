@@ -6,6 +6,10 @@ Actor *Layer::getActorAt(int x, int y)
     {
         return actors[std::make_pair(x, y)];
     }
+    else
+    {
+        return nullptr;
+    }
 }
 
 bool Layer::isActorAt(int x, int y)

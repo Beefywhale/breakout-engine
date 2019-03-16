@@ -83,7 +83,7 @@ void Engine::draw()
                     occupied.push_back(std::make_pair(actor->getPosition().x, actor->getPosition().y));
 
                     // set fonts color
-                    SDL_Color color = {actor->getColor().red, actor->getColor().green, actor->getColor().blue};
+                    SDL_Color color = {static_cast<Uint8>(actor->getColor().red), static_cast<Uint8>(actor->getColor().green), static_cast<Uint8>(actor->getColor().blue)};
 
                     // set surface to render to
                     SDL_Surface *surface = TTF_RenderText_Solid(font, actor->getValue().c_str(), color);
@@ -147,5 +147,9 @@ bool Engine::isKeyDown(std::string name)
     if (keysDown.find(name) != keysDown.end())
     {
         return keysDown[name];
+    }
+    else
+    {
+        return false;
     }
 }

@@ -3,4 +3,4 @@
 .vscode/
 
 # executable
-/Examples/Build/exec
+/Examples/*

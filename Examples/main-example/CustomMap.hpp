@@ -22,5 +22,4 @@ public:
 
 private:
   json data;
-  Engine *engine;
 };
